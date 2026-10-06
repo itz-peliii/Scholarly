@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scholarly</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <span class="logo">Scholarly</span>
+    <nav>
+      <button data-v="explore" class="on">Peluang</button>
+      <button data-v="track">Tracker <span id="tc" class="badge">0</span></button>
+    </nav>
+  </header>
+  <main>
+    <section id="v-explore">
+      <div class="intro">
+        <h1>Peluang untuk mahasiswa</h1>
+        <p>Beasiswa, magang, lomba, dan program pertukaran dalam satu daftar, dengan pelacak status pendaftaran.</p>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="bar">
+        <div class="wide"><label for="q">Cari peluang atau penyelenggara</label><input id="q" placeholder="mis. LPDP, magang data, hackathon"></div>
+        <div><label for="fc">Kategori</label><select id="fc"><option value="">Semua</option><option>Beasiswa</option><option>Magang</option><option>Lomba</option><option>Exchange</option></select></div>
+        <div><label for="pg">IPK saya</label><input id="pg" type="number" min="0" max="4" step="0.01"></div>
+        <div><label for="ps">Semester</label><input id="ps" type="number" min="1" max="14"></div>
+        <div><label for="so">Urutkan</label><select id="so"><option value="dl">Deadline terdekat</option><option value="nw">Terbaru</option><option value="az">Nama A–Z</option></select></div>
+      </div>
+      <div class="row gap">
+        <label class="chk"><input type="checkbox" id="fm"> Sesuai kualifikasi saya</label>
+        <label class="chk"><input type="checkbox" id="fh"> Sembunyikan yang ditutup</label>
+        <span class="spacer"></span>
+        <button class="btn pri" id="ai">Cari</button>
+      </div>
+      <details id="src" hidden><summary>Sumber pencarian</summary><ul id="srcl"></ul></details>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="v-track" hidden>
+      <div class="intro"><h1>Pelacak pendaftaran</h1><p>Seret kartu antar kolom atau ubah status lewat dropdown. Catatan tersimpan otomatis.</p></div>
+      <div class="row gap"><span class="spacer"></span><button class="btn sm" id="exp">Ekspor</button><button class="btn sm" id="imp">Impor</button><input type="file" id="impf" accept=".json" hidden></div>
+      <div class="board" id="board"></div>
+    </section>
+  </main>
+  <dialog id="dd"><div id="ddc"></div><div class="row"><span class="spacer"></span><button class="btn" id="ddx">Tutup</button></div></dialog>
+  <div id="toast"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
